@@ -26,6 +26,7 @@ services:
       - UMASK=002
     volumes:
       - ./open-webui:/app/backend/data
+      - ${PATH_CACHE}/open-webui:/app/backend/data/cache
     ports:
       - "${PORT_WEBUI:-8080}:8080"
     restart: always
