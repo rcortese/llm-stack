@@ -24,6 +24,7 @@ services:
       - PGID=${PGID}
       - TZ=${TZ:-America/Sao_Paulo}
       - UMASK=002
+      - OLLAMA_BASE_URL=http://ollama:11434
     volumes:
       - ./open-webui:/app/backend/data
       - ${PATH_CACHE}/open-webui:/app/backend/data/cache
