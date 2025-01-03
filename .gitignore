@@ -1,0 +1,17 @@
+# Ignore database files
+*.db
+
+# Ignore log files
+*.log
+
+# Ignore environment configuration
+.env
+
+# Ignore cache files
+*.cache
+
+# Ignore temporary files
+*.tmp
+
+# Ignore app files
+open-webui/
