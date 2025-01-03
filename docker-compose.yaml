@@ -30,12 +30,3 @@ services:
     ports:
       - "${PORT_WEBUI:-8080}:8080"
     restart: always
-
-  # Setup script to configure Ollama on first run
-  ollama-setup:
-    container_name: ollama-setup
-    build:
-      context: ./ollama-setup
-    depends_on:
-      - ollama
-    restart: on-failure
