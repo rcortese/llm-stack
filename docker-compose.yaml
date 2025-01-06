@@ -9,13 +9,17 @@ services:
       - PGID=${PGID}
       - TZ=${TZ:-America/Sao_Paulo}
       - UMASK=002
-      - NVIDIA_VISIBLE_DEVICES=0 # Comma separated list of GPU IDs
     volumes:
       - ${PATH_CACHE}/ollama:/root/.ollama
     ports:
       - "11434:11434"
-    devices: 
-      - "/dev/nvidia0:/dev/nvidia0" # Expose the GPU device
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: [GPU-80121c4a-2e6f-8a11-832e-14bb76297584]
+              capabilities: [compute,utility]
     restart: always
 
   # Web UI
@@ -34,3 +38,4 @@ services:
     ports:
       - "${PORT_WEBUI:-8080}:8080"
     restart: always
+
