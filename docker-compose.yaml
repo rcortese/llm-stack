@@ -18,7 +18,7 @@ services:
         reservations:
           devices:
             - driver: nvidia
-              device_ids: [GPU-80121c4a-2e6f-8a11-832e-14bb76297584]
+              device_ids: ["${NVIDIA_DEVICE_ID}"]
               capabilities: [compute,utility]
     restart: always
 
@@ -38,4 +38,3 @@ services:
     ports:
       - "${PORT_WEBUI:-8080}:8080"
     restart: always
-
